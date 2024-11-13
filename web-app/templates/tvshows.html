@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Tv Shows</title>
+    <style>
+        /* Optional: Basic CSS to style the movie list */
+        body { 
+            font-family: Arial, sans-serif; 
+        }
+        .tv-container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 16px; 
+        }
+        .tv-card { 
+            width: 200px; 
+            border: 1px solid #ddd; 
+            padding: 8px; 
+            text-align: center; 
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .tv-title { 
+            font-size: 1.2em; 
+            margin: 0.5em 0; 
+        }
+        .tv-image { 
+            width: 100%; 
+            height: auto; 
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Popular Tv Shows</h1>
+    <div class="tv-container">
+        {% for tv in tvs %}
+        <div class="tv-card">
+            <img src="{{ tv.poster_url }}" alt="Poster of {{ tv.title }}" class="tv-image">
+            <h2 class="tv-title">{{ tv.title }}</h2>
+            <p><strong>Release Date:</strong> {{ tv.release_date }}</p>
+            <p><strong>Rating:</strong> {{ tv.vote_average }}</p>
+            <p><strong>Seasons:</strong> {{ tv.seasons_number }}</p>
+            <p>{{ tv.overview }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

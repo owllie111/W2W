@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Review for "{{ title }}"</title>
+    <style>
+        .review-container { display: flex; flex-direction: column; gap: 16px; }
+        .review-card { border: 1px solid #ddd; padding: 16px; }
+        .review-title { font-size: 1.2em; font-weight: bold; }
+        .review-link { color: blue; }
+    </style>
+</head>
+<body>
+    <h1>Book Reviews for "{{ title }}"</h1>
+    <div class="review-container">
+        {% if reviews %}
+            {% for review in reviews %}
+            <div class="review-card">
+                <p class="review-title">Review by {{ review['byline'] }}</p>
+                <p><strong>Summary:</strong> {{ review['summary'] }}</p>
+                <a href="{{ review['url'] }}" class="review-link" target="_blank">Read Full Review</a>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>No reviews found for this book.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

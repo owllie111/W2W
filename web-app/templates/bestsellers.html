@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYT Bestsellers</title>
+    <style>
+        .book-container { display: flex; flex-wrap: wrap; gap: 16px; }
+        .book-card { width: 250px; border: 1px solid #ddd; padding: 16px; text-align: center; }
+        .book-title { font-size: 1.2em; margin: 0.5em 0; }
+        .book-image { width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+    <h1>NYT Bestsellers - Hardcover Fiction</h1>
+    <div class="book-container">
+        {% for book in books %}
+        <div class="book-card">
+            <img src="{{ book.book_image }}" alt="Cover of {{ book.title }}" class="book-image">
+            <h2 class="book-title">{{ book.title }}</h2>
+            <p><strong>Author:</strong> {{ book.author }}</p>
+            <p><strong>Rank:</strong> {{ book.rank }}</p>
+            <p><strong>Description:</strong> {{ book.description }}</p>
+            <a href="{{ book.amazon_product_url }}" target="_blank">Buy on Amazon</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
