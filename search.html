@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEARCH!</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="nav-menu">
+                <a href="about_us.html"><img src="icon.png" width="50px" alt="Logo"></a>
+                <a href="explore.html">EXPLORE</a>
+                <a href="for_you.html">FOR YOU</a>
+                <a href="search.html">SEARCH</a>
+                <a href="favorites.html">FAVORITES</a>
+                <a href="about_us.html">ABOUT US</a>
+            </div>
+            <div class="footer">
+                <p>Made by Corny TechNerds</p>
+            </div>
+        </div>
+    
+        <!-- Main Content -->
+        <div class="search_space" style=" background-image: url(1372317.jpeg); 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            background-size: 100% auto;">
+            <div class="input-container">
+                <!-- Text input for search -->
+                <input type="text" placeholder="Search here...">
+                <button>
+                    <a href="search_results.html"><img src="search-icon.png" alt="Search"></a>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+
+        .search_space {
+            flex: 1; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+        }
+    
+        /* Input container styles */
+        .input-container {
+            display: flex;
+            align-items: center;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden; /* Ensures rounded corners look consistent */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for the container */
+        }
+    
+        .input-container input[type="text"] {
+            flex: 1;
+           
+            font-size: 1rem;
+            border: none;
+            outline: none;
+        }
+    
+        .input-container input[type="text"]::placeholder {
+            color: #d46a6a;
+        }
+    
+        .input-container button {
+            background-color: grey;
+            border: none;
+            padding: 0 px;
+            cursor: pointer;
+            height:39px;
+        }
+    
+        .input-container button img {
+            width: 20px;
+            opacity: 0.6; /* Low opacity for the icon */
+            transition: opacity 0.3s;
+        }
+    
+        .input-container button img:hover {
+            opacity: 1; /* Fully visible on hover */
+        }
+    </style>
+    
+</body>
+</html>

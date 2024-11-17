@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT US!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="favicon" href="icon.png">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="nav-menu">
+                <a href="about_us.html"><img src="icon.png" width="50px"alt="Logo"></a>
+                <a href="explore.html">EXPLORE</a>
+                <a href="for_you.html">FOR YOU</a>
+                <a href="search.html">SEARCH</a>
+                <a href="favorites.html">FAVORITES</a>
+                <a href="about_us.html">ABOUT US</a>
+            </div>
+            <div class="footer">
+                <p>Made by Corny TechNerds</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div style="background-color:#868484 ; opacity:70%; " class="header">
+                <div class="search-container">
+                    <input type="search" placeholder="Search" aria-label="Search">
+                    <a href="search_results.html"><button type="submit"><img src="search-icon.png" alt="Search Icon" class="search-icon"></a></button>
+                </div>
+                <a href="#" class="profile-icon">
+                    <img src="acc.png" width="40px"/>
+                </a>
+                
+                <div class="dropdown-menu">
+                    <div class="profile-info">
+                        <div class="name">karen</div>
+                        <div class="username">user1</div>
+                    </div>
+                    <a href="#">Change profile picture</a>
+                    <a href="your_reviews.html">View Your Reviews</a>
+                </div>
+                <a href="#" class="log_out">
+                    <img src="logout.png" width="40px"/>
+                </a>
+            </div>
+            <style>
+                .header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    padding: 1rem;
+                    position: relative;
+                    background-color: transparent; /* Removed brown background */
+                }
+
+                .search-container {
+                    position: relative;
+                    margin-right: 1rem;
+                }
+                
+                .search-container input[type="search"] {
+                    padding: 10px 40px 10px 10px; /* Space on the right for the icon */
+                }
+                
+                .search-container button {
+                    position: absolute;
+                    right: 10px; /* Position icon at the end */
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                }
+                
+                .search-container button img {
+                    width: 20px;
+                    opacity: 0.6;
+                }
+                
+                
+                .search-icon {
+                    position: absolute;
+                    right: 0px; /* Move icon to the end */
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 20px;
+                    opacity: 0.8;
+                }
+                
+
+                .header .profile-icon {
+                    cursor: pointer;
+                    position: relative;
+                }
+                /* Dropdown menu styling */
+                .dropdown-menu {
+                    display: none; /* Hidden by default */
+                    position: absolute;
+                    top: 60px;
+                    right: 0;
+                    background-color: white;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    border-radius: 8px;
+                    padding: 1rem;
+                    width: 150px;
+                    z-index: 10;
+                    opacity:100%;
+                }
+
+                .dropdown-menu .profile-info {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    margin-bottom: 1rem;
+                }
+
+                .dropdown-menu .profile-info span:first-child {
+                    font-weight: bold;
+                    font-size: 1rem;
+                }
+
+                .dropdown-menu a {
+                    display: block;
+                    text-decoration: none;
+                    color: #333;
+                    padding: 0.5rem 0;
+                }
+
+                .dropdown-menu a:hover {
+                    background-color: #f0f0f0;
+                    border-radius: 4px;
+                }
+            </style>
+
+            
+            <div style="text-align:center; margin-top:40px;"class="about_us">
+                <img width="60px" src="icon.png"/>
+                <h1 style="margin-top:20px;">MOVIE APP</h1>
+                <p style="margin:20px;">
+                    Welcome to Movie App, your ultimate destination for
+                    all things movies and TV shows! Whether you're a die-hard movie enthusiast 
+                    or love binge-watching the latest series, our app is designed to make 
+                    discovering and enjoying entertainment effortless. With a vast library
+                    of content spanning genres and eras, personalized recommendations, and 
+                    must-see top IMDb picks, we’ve got something for everyone. Founded by a 
+                    team of passionate entertainment lovers, our mission is to bring the magic 
+                    of storytelling to your fingertips. Dive in, explore, and let us help you 
+                    find your next favorite show or film!</p>
+            </div>
+           <script>
+                // JavaScript to toggle the dropdown menu
+                document.querySelector('.profile-icon').addEventListener('click', function (event) {
+                    event.preventDefault(); // Prevent the anchor from navigating
+                    const dropdown = document.querySelector('.dropdown-menu');
+                    dropdown.style.display = dropdown.style.display === 'none' || dropdown.style.display === '' ? 'block' : 'none';
+                });
+
+                // Optional: Hide the dropdown when clicking outside
+                document.addEventListener('click', function (event) {
+                    const dropdown = document.querySelector('.dropdown-menu');
+                    const profileIcon = document.querySelector('.profile-icon');
+                    if (!profileIcon.contains(event.target) && !dropdown.contains(event.target)) {
+                        dropdown.style.display = 'none';
+                    }
+                });
+           </script>
+ 
+        </div>
+    </div>
+</body>
+</html>
