@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Comments</title>
+    <style>
+        .comment-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .poster {
+            width: 100px;
+            margin-right: 20px;
+        }
+        .poster img {
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Comments</h1>
+    <div class="comments-container">
+        {% if comments %}
+            <ul>
+            {% for comment in comments %}
+                <li class="comment-item">
+                    <div class="poster">
+                        <img src="{{ 'https://image.tmdb.org/t/p/w500/' + comment.poster_path if comment.poster_path else 'https://via.placeholder.com/100x150?text=No+Image' }}" alt="{{ comment.title }}">
+                    </div>
+                    <div class="comment-details">
+                        <h3><a href="{{ comment.review_url }}">{{ comment.title }}</a></h3>
+                        <p><strong>Comment:</strong> {{ comment.content }}</p>
+                        <p><small><strong>Posted on:</strong> {{ comment.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</small></p>
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>You haven't left any comments yet.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
