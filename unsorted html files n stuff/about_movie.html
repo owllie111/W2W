@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT MOVIE !</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="favicon" href="icon.png">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="nav-menu">
+                <a href="about_us.html"><img src="icon.png" width="50px"alt="Logo"></a>
+                <a href="explore.html">EXPLORE</a>
+                <a href="for_you.html">FOR YOU</a>
+                <a href="search.html">SEARCH</a>
+                <a href="favorites.html">FAVORITES</a>
+                <a href="about_us.html">ABOUT US</a>
+            </div>
+            <div class="footer">
+                <p>Made by Corny TechNerds</p>
+            </div>
+        </div>
+
+
+        <div class="main-content" style="display: flex; flex-direction: column; align-items: flex-start;">
+            <div class="movie_whole">
+              <div><img src="poster.jpg" width="300px alt="Movie Poster" class="movie-poster"/></div>
+              <div class="about_movie">
+                <div class="movie_name">xxxx</div>
+                <div class="rating">Rating: x.x</div>
+                <div class="description">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat ex nostrum 
+                  adipisci molestias dignissimos quae delectus vel corrupti itaque esse.
+                </div>
+                <div>
+                  <button>Remove from favorites</button>
+                  <div class="in_review"><p>Already in your favorites!</p></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="reviews">
+                <div id="respond">
+
+                    <h3>REVIEWS!</h3>
+                    <div class="review-item">
+                      <div class="username">Asa:</div>
+                      <div class="reviews">sesbian lex</div>
+                    </div>
+                    <div class="review-item">
+                      <div class="username">Asa:</div>
+                      <div class="reviews">Another review text.</div>
+                    </div>
+                    <div class="review-item">
+                      <div class="username">Asa:</div>
+                      <div class="reviews">Yet another review here!</div>
+                    </div>
+                    
+                    
+                    <form action="post_comment.php" method="post" id="commentform">
+                      <div class="add_comment" style="display: flex; align-items: center; gap: 10px;">
+                          <input type="text" placeholder="Write your comment here..." style="flex: 1; padding: 10px; font-size: 14px;">
+                          <button type="submit" style="border: none; background: none; padding: 0;">
+                              <img src="send.png" width="20" alt="Search">
+                          </button>
+                      </div>
+                  </form>
+                  <style>
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  background: linear-gradient(to bottom, #5f4706, #d37115);
+  color: white;
+}
+
+/* Movie details section */
+.movie_whole {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+
+.movie-poster {
+  width: 200px;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.about_movie {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.movie_name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.rating {
+  font-size: 18px;
+  color: #ccc;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+button {
+  background: #c5660c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #5649c6;
+}
+
+p {
+  font-size: 14px;
+  color: #aaa;
+  margin-top: 10px;
+}
+
+/* Reviews section */
+.reviews {
+  margin-top: 30px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.reviews h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.review-item {
+  display: flex; /* Align username and review side by side */
+  align-items: center; /* Vertically align the text */
+  gap: 5px; /* Add space between username and review */
+  margin-bottom: 10px; /* Space between review entries */
+}
+
+.username {
+  font-weight: bold; /* Make the username bold */
+  color: white; /* Ensure it matches the theme */
+  white-space: nowrap; /* Prevent wrapping of the username */
+}
+
+.reviews {
+  color: white; /* Set review text color */
+  word-wrap: break-word; /* Wrap long text to the next line */
+  flex: 1; /* Allow the review text to occupy the remaining space */
+}
+
+
+/* Comment section styles */
+.add_comment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.comment-box {
+  width: 100%;
+  max-width: 600px;
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.comment-box::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.comment-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.comment-button img {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+
+        </style>
+    </div>
+</body>
+</html>
