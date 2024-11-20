@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %} Favorites {% endblock %}
+
+{% block content %}
+<section class="recommendation-section">
+    <h2>YOUR FAVORITES</h2>
+    
+    <BR>
+    <div class="item-selection"> 
+        {% for item in faves %}
+            <div class="item-box">
+                {% if item['media_type'] == 'movie' %}
+                    <a href="{{ url_for('movie_reviews', movie_id=item.id) }}">
+                {% elif item['media_type'] == 'tv' %}
+                    <a href="{{ url_for('tv_reviews', tv_id=item.id) }}">
+                {% endif %}
+                    <img src="{{ 'https://image.tmdb.org/t/p/w500/' + item.poster_path }}" alt="Poster of {{ item.name or item.title }}" class="result-image" style="width:130px;">
+                    <p>{{ item.title or item.name }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %} FYP {% endblock %}
+
+{% block content %}
+<section class="recommendation-section">
+    <h2>MOVIES AND TV-SHOWS BASED ON YOUR FAVORITES!</h2>
+
+    <h4 style="margin-top:10px;">Recommended Movies</h4>
+    <BR>
+    <div class="item-selection"> 
+        {% for item in movie_recs %}
+            <div class="item-box">
+                <a href="{{ url_for('movie_reviews', movie_id=item['id']) }}">
+                    {% if item.get('poster_path') %}
+                        <img src="{{ 'https://image.tmdb.org/t/p/w500/' + item['poster_path'] }}" 
+                            alt="Poster of {{ item.get('title') }}" 
+                            class="recommendation-image">
+                    {% else %}
+                        <img src="/static/images/placeholder.png" 
+                            alt="No poster available" 
+                            class="recommendation-image">
+                    {% endif %}
+                </a>
+                <p>{{ item.get('title') }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <h4>Recommended TV Shows</h4>
+    <br>
+    <div class="item-selection">
+        {% for item in tv_recs %}
+            <div class="item-box">
+                <a href="{{ url_for('tv_reviews', tv_id=item['id']) }}">
+                    {% if item.get('poster_path') %}
+                        <img src="{{ 'https://image.tmdb.org/t/p/w500/' + item['poster_path'] }}" 
+                            alt="Poster of {{ item.get('name') }}" 
+                            class="recommendation-image">
+                    {% else %}
+                        <img src="/static/images/placeholder.png" 
+                            alt="No poster available" 
+                            class="recommendation-image">
+                    {% endif %}
+                </a>
+                <p>{{ item.get('name') }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</section> 
+{% endblock %}

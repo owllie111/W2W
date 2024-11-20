@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      body, html {
+        height: 100%;                  /* Ensure the container takes full height */
+        margin: 0;                      /* Remove default margin */
+        display: flex;
+        justify-content: center;        /* Center horizontally */
+        align-items: center;            /* Center vertically */
+      }
+      .container {
+        width: 450px;              /* Set width of the container */
+        height: 500px;
+        padding: 70px;             /* Padding inside the container */
+        border-style: double;      /* Double border style */
+        text-align: center;        /* Center align the text and elements */
+      }
+      .container h1 {
+        font-size: 40px;
+        margin-bottom: 60px;       /* Space between header and form */
+      }
+      .container label,
+      .container input {
+        display: block;
+        margin: 20px auto;         /* Center labels and inputs */
+        width: 100%;               /* Make input fields full-width */
+        max-width: 250px;          /* Set a max width for inputs */
+      }
+      button {
+        margin-top: 30px;          /* Space above the button */
+        padding: 10px 20px;        /* Padding for button */
+        width: 100%;               /* Center-align button */
+        max-width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Log in to your account</h1>
+      <form action="#" method="post">
+        <label for="username">Username:</label>
+        <input type="text" name="username" />
+        <label for="password">Password:</label>
+        <input type="password" name="password" />
+        <button type="submit">Submit</button>
+      </form>
+      <nav>
+        <ul>
+          <li><a href="/register">Create account</a></li>
+        </ul>
+      </nav>
+    </div>
+  </body>
+</html>
