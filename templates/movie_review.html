@@ -21,7 +21,7 @@
             <p>Made by Corny TechNerds</p>
         </div>
       </div>
-    </div>
+    
 
 <div class="main-content" style="display: flex; flex-direction: column; align-items: flex-start;">
     <div class="movie_whole">
@@ -78,146 +78,161 @@
                       <p><a href="{{ url_for('login') }}">Log in</a> to leave a comment.</p>
                     {% endif %}
                 </div>
+                <style>
+                    .comments-container{
+                        background-color:rgb(223, 129, 53);
+                        width:40%;
+                        border-radius: 20px;
+                        padding:20px;
+                    }
+                </style>
             </div>
   </div>
-<style>
-.main-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 20px;
-  background: linear-gradient(to bottom, #5f4706, #d37115);
-  color: white;
-}
-
-/* Movie details section */
-.movie_whole {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 20px;
-  border-radius: 10px;
-  width: 100%;
-  max-width: 800px;
-  margin-bottom: 20px;
-}
-
-.movie-poster {
-  width: 200px;
-  height: auto;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.about_movie {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.movie_name {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.rating {
-  font-size: 18px;
-  color: #ccc;
-}
-
-.description {
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-button {
-  background: #c5660c;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #5649c6;
-}
-
-p {
-  font-size: 14px;
-  color: #aaa;
-  margin-top: 10px;
-}
-
-/* Reviews section */
-.reviews {
-  margin-top: 30px;
-  width: 100%;
-  max-width: 800px;
-}
-
-.reviews h3 {
-  font-size: 22px;
-  margin-bottom: 15px;
-}
-
-.review-item {
-  display: flex; /* Align username and review side by side */
-  align-items: center; /* Vertically align the text */
-  gap: 5px; /* Add space between username and review */
-  margin-bottom: 10px; /* Space between review entries */
-}
-
-.username {
-  font-weight: bold; /* Make the username bold */
-  color: white; /* Ensure it matches the theme */
-  white-space: nowrap; /* Prevent wrapping of the username */
-}
-
-.reviews {
-  color: white; /* Set review text color */
-  word-wrap: break-word; /* Wrap long text to the next line */
-  flex: 1; /* Allow the review text to occupy the remaining space */
-}
-
-
-/* Comment section styles */
-.add_comment {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.comment-box {
-  width: 100%;
-  max-width: 600px;
-  padding: 15px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-}
-
-.comment-box::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.comment-button {
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.comment-button img {
-  display: block;
-  width: 24px;
-  height: 24px;
-}
-
-
-</style>
+</div>
+  <style>
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+      background: linear-gradient(to bottom, #5f4706, #d37115);
+      color: white;
+    }
+    
+    /* Movie details section */
+    .movie_whole {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 800px;
+      margin-bottom: 20px;
+    }
+    
+    .movie-poster {
+      width: 200px;
+      height: auto;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .about_movie {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .movie_name {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+    .rating {
+      font-size: 18px;
+      color: #ccc;
+    }
+    
+    .description {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    
+    button {
+      background: #c5660c;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background: #865413;
+    }
+    
+    p {
+      font-size: 14px;
+      color: #aaa;
+      margin-top: 10px;
+    }
+    
+    /* Reviews section */
+    .reviews {
+      margin-top: 30px;
+      width: 100%;
+      max-width: 800px;
+    }
+    
+    .reviews h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color:#530909;
+    }
+    
+    .review-item {
+      display: flex; 
+      align-items: center;
+      gap: 5px; /* Add space between username and review */
+      margin-bottom: 10px; /* Space between review entries */
+      color:#5f4706;
+    }
+    
+    .username {
+      font-weight: bold; /* Make the username bold */
+      color: white; /* Ensure it matches the theme */
+      white-space: nowrap; /* Prevent wrapping of the username */
+      color:#530909;
+    }
+    
+    .reviews {
+      color: rgb(0, 0, 0); 
+      word-wrap: break-word;
+      flex: 1; 
+      font-weight:20;
+      background-color: #c5660c;
+      padding:15px;
+      border-radius: 20px;
+    }
+    
+    
+    .add_comment {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .comment-box {
+      width: 100%;
+      max-width: 600px;
+      padding: 15px;
+      font-size: 16px;
+      border: 1px solid #530909;
+      border-radius: 20px;
+      background: rgba(148, 54, 54, 0.1);
+      color: rgb(116, 91, 91);
+    }
+    
+    .comment-box::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .comment-button {
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+    
+    .comment-button img {
+      display: block;
+      width: 24px;
+      height: 24px;
+    }
+    
+  
+  </style>
   </body>
   </html>
