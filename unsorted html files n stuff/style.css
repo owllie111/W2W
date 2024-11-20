@@ -5,6 +5,91 @@
     box-sizing: border-box;
 }
 
+.header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    padding: 1rem;
+                    position: relative;
+                    background-color: transparent; 
+                }
+
+                .search-container {
+                    position: relative;
+                    margin-right: 1rem;
+                }
+                
+                .search-container input[type="text"] {
+                    padding: 10px 40px 10px 10px; /* Space on the right for the icon */
+                }
+                
+                .search-container button {
+                    position: absolute;
+                    right: 10px; /* Position icon at the end */
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                }
+                
+                .search-container button img {
+                    width: 20px;
+                    opacity: 0.6;
+                }
+                
+                .search-icon {
+                    position: absolute;
+                    right: 0px; /* Move icon to the end */
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 20px;
+                    opacity: 0.8;
+                }
+
+                .header .profile-icon {
+                    cursor: pointer;
+                    position: relative;
+                }
+
+                .dropdown-menu {
+                    display: none; /* Hidden by default */
+                    position: absolute;
+                    top: 60px;
+                    right: 0;
+                    background-color: white;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    border-radius: 8px;
+                    padding: 1rem;
+                    width: 150px;
+                    z-index: 10;
+                    opacity:100%;
+                }
+
+                .dropdown-menu .profile-info {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    margin-bottom: 1rem;
+                }
+
+                .dropdown-menu .profile-info span:first-child {
+                    font-weight: bold;
+                    font-size: 1rem;
+                }
+
+                .dropdown-menu a {
+                    display: block;
+                    text-decoration: none;
+                    color: #333;
+                    padding: 0.5rem 0;
+                }
+
+                .dropdown-menu a:hover {
+                    background-color: #f0f0f0;
+                    border-radius: 4px;
+                }
+  
 
 body {
     font-family: Arial, sans-serif;
