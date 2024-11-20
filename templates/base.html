@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatToWatch</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="nav-menu">
+                <a href="{{ url_for('home') }}"><img src="static/IMG_0981.PNG" width="90px  "alt="Logo"></a>
+                <a href="/popular">EXPLORE</a>
+                <a href="/recommended">FOR YOU</a>
+                <a href="/search_page">SEARCH</a>
+                <a href="/favorites">FAVORITES</a>
+                <a href="{{ url_for('home') }}">ABOUT US</a>
+            </div>
+            <div class="footer">
+                <p>Made by Corny TechNerds</p>
+            </div>
+        </div>
+        <div class="main-content">
+            <div style="background-color:#868484 ; opacity:70%; " class="header">
+                <div class="search-container">
+                    <form action="{{ url_for('search') }}" method="get">
+                        <input type = "text" name = "query" placeholder = "What are you looking for?" required aria-label="Search">
+                        <button>
+                            <a href="search_results.html"><img src="static/search-icon.png" alt="Search" class="search-icon"></a>
+                        </button>
+                    </form>
+                </div>
+                {% if current_user %}
+                    {% if current_user.profile_picture %}
+                        <a href="#" class="profile-picture">
+                            <img src="{{ url_for('static', filename='uploads/' + current_user.profile_picture) }}" alt="Profile Picture" style="width:40px;">
+                        </a>
+                    {% else %}
+                        <a href="#" class="profile-picture">
+                            <img src="static/acc.png" width="40px"/>
+                        </a>
+                    {% endif %}
+                {% else %}
+                    <a href="#" class="profile-picture">
+                        <img src="static/acc.png" width="40px"/>
+                    </a>
+                {% endif %}
+                <a href="/logout" class="log_out">
+                    <img src="static/logout.png" width="40px"/>
+                </a>
+                <div class="dropdown-menu">
+                    <div class="profile-info">
+                        <div class="username">{{ current_user.username }}</div>
+                    </div>
+                    <a href="/upload_profile_pic">Change profile picture</a>
+                    <a href="/my_comments">View Your Reviews</a>
+                </div>
+            </div>
+            <style>
+                .header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    padding: 1rem;
+                    position: relative;
+                    background-color: transparent; 
+                }
+
+                .search-container {
+                    position: relative;
+                    margin-right: 1rem;
+                }
+                
+                .search-container input[type="text"] {
+                    padding: 10px 40px 10px 10px; /* Space on the right for the icon */
+                }
+                
+                .search-container button {
+                    position: absolute;
+                    right: 10px; /* Position icon at the end */
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                }
+                
+                .search-container button img {
+                    width: 20px;
+                    opacity: 0.6;
+                }
+                
+                .search-icon {
+                    position: absolute;
+                    right: 0px; /* Move icon to the end */
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 20px;
+                    opacity: 0.8;
+                }
+
+                .header .profile-icon {
+                    cursor: pointer;
+                    position: relative;
+                }
+
+                .dropdown-menu {
+                    display: none; /* Hidden by default */
+                    position: absolute;
+                    top: 60px;
+                    right: 0;
+                    background-color: white;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    border-radius: 8px;
+                    padding: 1rem;
+                    width: 150px;
+                    z-index: 10;
+                    opacity:100%;
+                }
+
+                .dropdown-menu .profile-info {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    margin-bottom: 1rem;
+                }
+
+                .dropdown-menu .profile-info span:first-child {
+                    font-weight: bold;
+                    font-size: 1rem;
+                }
+
+                .dropdown-menu a {
+                    display: block;
+                    text-decoration: none;
+                    color: #333;
+                    padding: 0.5rem 0;
+                }
+
+                .dropdown-menu a:hover {
+                    background-color: #f0f0f0;
+                    border-radius: 4px;
+                }
+            </style>
+            <script>
+                // JavaScript to toggle the dropdown menu
+                document.querySelector('.profile-picture').addEventListener('click', function (event) {
+                    event.preventDefault(); // Prevent the anchor from navigating
+                    const dropdown = document.querySelector('.dropdown-menu');
+                    dropdown.style.display = dropdown.style.display === 'none' || dropdown.style.display === '' ? 'block' : 'none';
+                });
+
+                // Optional: Hide the dropdown when clicking outside
+                document.addEventListener('click', function (event) {
+                    const dropdown = document.querySelector('.dropdown-menu');
+                    const profileIcon = document.querySelector('.profile-picture');
+                    if (!profileIcon.contains(event.target) && !dropdown.contains(event.target)) {
+                        dropdown.style.display = 'none';
+                    }
+                });
+
+
+            </script>
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>

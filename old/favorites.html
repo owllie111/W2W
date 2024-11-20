@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Favorites</title>
+    <style>
+        img {
+            border-radius: 15px; /* This will round the edges */
+            width: 200px;
+            height: 300px;
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+        }
+        .block {
+            height:300px;
+            width:200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Favorites</h1>
+    <a href="{{ url_for('search_page') }}">Search</a>
+    <div class = "favorites-container">
+        {% for item in faves %}
+            <div>
+                {% if item['media_type'] == 'movie' %}
+                    <a href="{{ url_for('movie_reviews', movie_id=item.id) }}">
+                {% elif item['media_type'] == 'tv' %}
+                    <a href="{{ url_for('tv_reviews', tv_id=item.id) }}">
+                {% endif %}
+                    <img src="{{ 'https://image.tmdb.org/t/p/w500/' + item.poster_path }}" alt="Poster of {{ item.name or item.title }}" class="result-image">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.overview }}</p>
+                    <a href="{{ url_for('remove_from_favorites', fav_id=item.fav_id) }}">Remove from favorites</a>
+        {% endfor %}
+    </div>
+</body>
+</html>
