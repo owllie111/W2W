@@ -132,7 +132,6 @@ def recommendations():
                 # Add genre IDs to the movie genre ID set
                 movie_genres = {movie_genre['id'] for movie_genre in movie.get('genres', [])} 
                 total_movie_genres.update(movie_genres)
-                print(total_movie_genres)
         elif fav.tv_id:
             # Fetch TV show details
             response = requests.get(f"https://api.themoviedb.org/3/tv/{fav.tv_id}?api_key={tmdb_api_key}")
@@ -140,8 +139,7 @@ def recommendations():
                 tv_show = response.json()
                 tv_genres = {tv_genre['id'] for tv_genre in tv_show.get('genres', [])} 
                 total_tv_genres.update(tv_genres)
-                print(total_tv_genres)
-
+                
     total_genres = total_tv_genres | total_movie_genres
 
     # Fetch recommended movies based on collected genre IDs
