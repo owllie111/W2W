@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+<div class="search_results">
+    <h2 style="margin-top:50px; margin-left:20px;">You searched for "{{ query | capitalize }}" </h2>
+    <BR>
+        
+    <div class="item-selection"> 
+        {% for item in results %}
+            <div class="item-box">
+                {% if item['media_type'] == 'movie' %}
+                    <a href="{{ url_for('movie_reviews', movie_id=item.id) }}">
+                        <img src="{{ item.poster_url }}" alt="Poster of {{ item.name or item.title }}" class="result-image" style="width:130px;">
+                    </a>
+                {% elif item['media_type'] == 'tv' %}
+                    <a href="{{ url_for('tv_reviews', tv_id=item.id) }}">
+                        <img src="{{ item.poster_url }}" alt="Poster of {{ item.name or item.title }}" class="result-image" style="width:130px;">
+                    </a>
+                {% endif %}
+                <p>{{ item.overview }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

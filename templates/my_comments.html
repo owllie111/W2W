@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Your Reviews{% endblock %}
+
+{% block content %}
+<style>
+    .comment-item {
+        display: flex;
+        margin-bottom: 20px;
+    }
+    .poster {
+        width: 100px;
+        margin-right: 20px;
+    }
+    .poster img {
+        width: 100%;
+        border-radius: 10px;
+    }
+</style>
+<h1>My Comments</h1>
+<div class="comments-container">
+    {% if comments %}
+        <ul>
+            {% for comment in comments %}
+                <li class="comment-item">
+                    <div class="poster">
+                        <img src="{{ 'https://image.tmdb.org/t/p/w500/' + comment.poster_path if comment.poster_path else 'https://via.placeholder.com/100x150?text=No+Image' }}" alt="{{ comment.title }}">
+                    </div>
+                    <div class="comment-details">
+                        <h3 style="font-family:'arial'; color:brown;"><a href="{{ comment.review_url }}">{{ comment.title }}</a></h3>
+                        <p style="font-family:arial;"><strong>Comment:</strong> {{ comment.content }}</p>
+                        <p><small><strong>Posted on:</strong> {{ comment.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</small></p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You haven't left any comments yet.</p>
+    {% endif %}
+    <style>
+        .comments-container{
+            background-color:rgb(223, 129, 53);
+            width:70%;
+            border-radius: 20px;
+            padding:20px;
+        }
+    </style>
+</div>
+{% endblock %}
